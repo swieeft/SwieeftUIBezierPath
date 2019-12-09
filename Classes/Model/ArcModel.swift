@@ -51,7 +51,7 @@ internal struct ArcModel {
             let angle = atan2(v2.dy, v2.dx) - atan2(v1.dy, v1.dx)
             return angle
         } else {
-            return (angle * 0.0195) + startAngle
+            return radius * angle * (3.14/180) * 0.01
         }
     }
 
