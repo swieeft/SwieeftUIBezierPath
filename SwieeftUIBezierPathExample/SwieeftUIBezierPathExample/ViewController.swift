@@ -14,15 +14,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let path = UIBezierPath()
-        path.move(0, 300)
-            .addLine(50, 300).addCircle(50, 310)
-            .addLine(100, 300).addCircle(100, 310)
-            .addLine(150, 300).addCircle(150, 310)
-            .addLine(200, 300).addCircle(200, 310)
-            .addLine(250, 300).addCircle(250, 310)
-            .addLine(300, 300).addCircle(300, 310)
-            .addLine(350, 300).addCircle(350, 310)
-            .addLine(400, 300)
+        path.move(self.view.center.x, 100)
+            .addStar(self.view.center.x, 70)
+            .move(self.view.center.x, 90)
+            .addQuadCurve(self.view.center.x - 50, 150).controlPoint(self.view.center.x - 30, 110)
+            .move(self.view.center.x, 90)
+            .addQuadCurve(self.view.center.x + 50, 150).controlPoint(self.view.center.x + 30, 110)
         
         let layer = CAShapeLayer()
         layer.path = path.cgPath
@@ -33,8 +30,6 @@ class ViewController: UIViewController {
 
         self.view.layer.addSublayer(layer)
         self.view.layoutIfNeeded()
-        
-        print(CFGetRetainCount(path))
     }
 }
 
