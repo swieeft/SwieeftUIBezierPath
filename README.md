@@ -1,5 +1,5 @@
 # SwieeftUIBezierPath
-Lets you easily use the UIBezierPath.
+SwieeftUIBezierPath can help you connect UIBezierPath with chaining and make it easier to work with.
 
 ## Installation
 
@@ -10,7 +10,7 @@ Lets you easily use the UIBezierPath.
 To install SwieeftUIBezierPath, simply add the following line to your Podfile:
 
 ```ruby
-pod 'SwieeftUIBezierPath'
+pod 'SwieeftUIBezierPath', '~> 1.0.1'
 ```
 
 ## LICENSE
