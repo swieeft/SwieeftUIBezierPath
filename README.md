@@ -10,7 +10,7 @@ Lets you easily use the UIBezierPath.
 To install SwieeftUIBezierPath, simply add the following line to your Podfile:
 
 ```ruby
-pod 'SwieeftUIBezierPath', '~> 1.0.2'
+pod 'SwieeftUIBezierPath'
 ```
 
 ## LICENSE
