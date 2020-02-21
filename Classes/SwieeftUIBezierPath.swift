@@ -54,25 +54,40 @@ extension UIBezierPath {
         move(to: CGPoint(x: Int(currentPoint.x), y: Int(currentPoint.y) + y))
         return self
     }
+
+    public func moveXY(_ x: CGFloat, _ y: CGFloat) -> Self {
+        move(to: CGPoint(x: currentPoint.x + x, y: currentPoint.y + y))
+        return self
+    }
+
+    public func moveXY(_ x: Double, _ y: Double) -> Self {
+        move(to: CGPoint(x: Double(currentPoint.x) + x, y: Double(currentPoint.y) + y))
+        return self
+    }
+
+    public func moveXY(_ x: Int, _ y: Int) -> Self {
+        move(to: CGPoint(x: Int(currentPoint.x) + x, y: Int(currentPoint.y) + y))
+        return self
+    }
 }
 
 // MARK: AddLine Func
 extension UIBezierPath {
     @discardableResult
     public func addLine(_ x: CGFloat, _ y: CGFloat) -> Self {
-        addLine(to: CGPoint(x: x, y: y))
+        addLine(to: CGPoint(x: currentPoint.x + x, y: currentPoint.y + y))
         return self
     }
     
     @discardableResult
     public func addLine(_ x: Double, _ y: Double) -> Self {
-        addLine(to: CGPoint(x: x, y: y))
+        addLine(to: CGPoint(x: Double(currentPoint.x) + x, y: Double(currentPoint.y) + y))
         return self
     }
     
     @discardableResult
     public func addLine(_ x: Int, _ y: Int) -> Self {
-        addLine(to: CGPoint(x: x, y: y))
+        addLine(to: CGPoint(x: Int(currentPoint.x) + x, y: Int(currentPoint.y) + y))
         return self
     }
 }
