@@ -24,6 +24,36 @@ extension UIBezierPath {
         move(to: CGPoint(x: x, y: y))
         return self
     }
+
+    public func moveX(_ x: CGFloat) -> Self {
+        move(to: CGPoint(x: currentPoint.x + x, y: currentPoint.y))
+        return self
+    }
+
+    public func moveX(_ x: Double) -> Self {
+        move(to: CGPoint(x: Double(currentPoint.x) + x, y: Double(currentPoint.y)))
+        return self
+    }
+
+    public func moveX(_ x: Int) -> Self {
+        move(to: CGPoint(x: Int(currentPoint.x) + x, y: Int(currentPoint.y)))
+        return self
+    }
+
+    public func moveY(_ y: CGFloat) -> Self {
+        move(to: CGPoint(x: currentPoint.x, y: currentPoint.y + y))
+        return self
+    }
+
+    public func moveY(_ y: Double) -> Self {
+        move(to: CGPoint(x: Double(currentPoint.x), y: Double(currentPoint.y) + y))
+        return self
+    }
+
+    public func moveY(_ y: Int) -> Self {
+        move(to: CGPoint(x: Int(currentPoint.x), y: Int(currentPoint.y) + y))
+        return self
+    }
 }
 
 // MARK: AddLine Func
@@ -50,32 +80,19 @@ extension UIBezierPath {
 // MARK: AddQuadCurve Func
 extension UIBezierPath {
     public func addQuadCurve(_ x: CGFloat, _ y: CGFloat) -> QuadCurveController {
-        QuadCurveModel.shared.path = self
-        QuadCurveModel.shared.toPoint = CGPoint(x: x, y: y)
-        
-        return QuadCurveController()
+        return QuadCurveController(path: self, toPoint: CGPoint(x: x, y: y))
     }
     
     public func addQuadCurve(_ x: Double, _ y: Double) -> QuadCurveController {
-        QuadCurveModel.shared.path = self
-        QuadCurveModel.shared.toPoint = CGPoint(x: x, y: y)
-        
-        return QuadCurveController()
+        return QuadCurveController(path: self, toPoint: CGPoint(x: x, y: y))
     }
     
     public func addQuadCurve(_ x: Int, _ y: Int) -> QuadCurveController {
-        QuadCurveModel.shared.path = self
-        QuadCurveModel.shared.toPoint = CGPoint(x: x, y: y)
-        
-        return QuadCurveController()
+        return QuadCurveController(path: self, toPoint: CGPoint(x: x, y: y))
     }
     
-    internal func addQuadCurve() -> Self {
-        if let toPoint = QuadCurveModel.shared.toPoint, let controlPoint = QuadCurveModel.shared.controlPoint {
-            addQuadCurve(to: toPoint, controlPoint: controlPoint)
-        }
-        
-        QuadCurveModel.shared.clear()
+    internal func addQuadCurve(toPoint: CGPoint, controlPoint: CGPoint) -> Self {
+        addQuadCurve(to: toPoint, controlPoint: controlPoint)
         return self
     }
 }
@@ -83,29 +100,19 @@ extension UIBezierPath {
 // MARK: AddCurve Func
 extension UIBezierPath {
     public func addCurve(_ x: CGFloat, _ y: CGFloat) -> CurveController1 {
-        CurveModel.shared.path = self
-        CurveModel.shared.toPoint = CGPoint(x: x, y: y)
-        return CurveController1()
+        return CurveController1(path: self, toPoint: CGPoint(x: x, y: y))
     }
     
     public func addCurve(_ x: Double, _ y: Double) -> CurveController1 {
-        CurveModel.shared.path = self
-        CurveModel.shared.toPoint = CGPoint(x: x, y: y)
-        return CurveController1()
+        return CurveController1(path: self, toPoint: CGPoint(x: x, y: y))
     }
     
     public func addCurve(_ x: Int, _ y: Int) -> CurveController1 {
-        CurveModel.shared.path = self
-        CurveModel.shared.toPoint = CGPoint(x: x, y: y)
-        return CurveController1()
+        return CurveController1(path: self, toPoint: CGPoint(x: x, y: y))
     }
     
-    internal func addCurve() -> Self {
-        let model = CurveModel.shared
-        if let toPoint = model.toPoint, let controlPoint1 = model.controlPoint1, let controlPoint2 = model.controlPoint2 {
-            addCurve(to: toPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
-        }
-        CurveModel.shared.clear()
+    internal func addCurve(toPoint: CGPoint, control1: CGPoint, control2: CGPoint) -> Self {
+        addCurve(to: toPoint, controlPoint1: control1, controlPoint2: control2)
         return self
     }
 }
@@ -113,38 +120,34 @@ extension UIBezierPath {
 // MARK: AddArc Func
 extension UIBezierPath {
     public func addArc(_ x: CGFloat, _ y: CGFloat) -> ArcPoint1Controller {
-        ArcModel.shared.path = self
-        ArcModel.shared.center = CGPoint(x: x, y: y)
-        return ArcPoint1Controller()
+        return ArcPoint1Controller(path: self, center: CGPoint(x: x, y: y))
     }
     
     public func addArc(_ x: Double, _ y: Double) -> ArcPoint1Controller {
-        ArcModel.shared.path = self
-        ArcModel.shared.center = CGPoint(x: x, y: y)
-        return ArcPoint1Controller()
+        return ArcPoint1Controller(path: self, center: CGPoint(x: x, y: y))
     }
     
     public func addArc(_ x: Int, _ y: Int) -> ArcPoint1Controller {
-        ArcModel.shared.path = self
-        ArcModel.shared.center = CGPoint(x: x, y: y)
-        return ArcPoint1Controller()
+        return ArcPoint1Controller(path: self, center: CGPoint(x: x, y: y))
     }
     
-    internal func addArc() -> Self {
-        let model = ArcModel.shared
-        if let center = model.center {
-            
-            print(model.startAngle)
-            print(model.endAngle)
-            addArc(withCenter: center, radius: model.radius, startAngle: model.startAngle, endAngle: model.endAngle, clockwise: model.clockwise)
-        }
-        ArcModel.shared.clear()
+    internal func addArc(center: CGPoint, radius: CGFloat, start: CGFloat, end: CGFloat, clockwise: Bool) -> Self {
+        addArc(withCenter: center, radius: radius, startAngle: start, endAngle: end, clockwise: clockwise)
         return self
     }
 }
 
 // MARK: AddCircle Func
 extension UIBezierPath {
+    @discardableResult
+    public func addCircle(radius: CGFloat) -> Self {
+        let center = currentPoint
+
+        return moveX(radius)
+            .addArc(center: center, radius: radius, start: 0, end: 2 * .pi, clockwise: true)
+            .moveX(-radius)
+    }
+
     @discardableResult
     public func addCircle(_ x: CGFloat, _ y: CGFloat) -> Self {
         let center = CGPoint(x: x, y: y)
@@ -194,14 +197,27 @@ extension UIBezierPath {
         let yDist: CGFloat = currentPoint.y - center.y
         let radius: CGFloat = sqrt(xDist * xDist + yDist * yDist)
         
-        move(center.x, center.y - radius)
-            .addLine(center.x - ((radius / 4) * 3), center.y + radius)
-            .addLine(center.x + radius, center.y - (radius / 4))
-            .addLine(center.x - radius, center.y - (radius / 4))
-            .addLine(center.x + ((radius / 4) * 3), center.y + radius)
-            .close()
-        
-        return self
+        return move(center.x, center.y - radius)
+                .addLine(center.x - ((radius / 4) * 3), center.y + radius)
+                .addLine(center.x + radius, center.y - (radius / 4))
+                .addLine(center.x - radius, center.y - (radius / 4))
+                .addLine(center.x + ((radius / 4) * 3), center.y + radius)
+                .addLine(center.x, center.y - radius)
+                .move(center.x, center.y)
+    }
+
+    @discardableResult
+    public func addRect(width: CGFloat, height: CGFloat) -> Self {
+        let center = currentPoint
+        let halfWidth = width / 2
+        let halfHeight = height / 2
+
+        return move(center.x - halfWidth, center.y - halfHeight)
+                .addLine(center.x + halfWidth, center.y - halfHeight)
+                .addLine(center.x + halfWidth, center.y + halfHeight)
+                .addLine(center.x - halfWidth, center.y + halfHeight)
+                .addLine(center.x - halfWidth, center.y - halfHeight)
+                .move(center.x, center.y)
     }
 }
 

@@ -9,24 +9,26 @@
 import UIKit
 
 public struct QuadCurveController {
-    internal init() {
+    let path: UIBezierPath
+    let toPoint: CGPoint
+
+    internal init(path: UIBezierPath, toPoint: CGPoint) {
+        self.path = path
+        self.toPoint = toPoint
+    }
+
+    @discardableResult
+    public func cp1(_ controlX: CGFloat, _ controlY: CGFloat) -> UIBezierPath {
+        return path.addQuadCurve(toPoint: toPoint, controlPoint: CGPoint(x: controlX, y: controlY))
     }
     
     @discardableResult
-    public func controlPoint(_ controlX: CGFloat, _ controlY: CGFloat) -> UIBezierPath {
-        QuadCurveModel.shared.controlPoint = CGPoint(x: controlX, y: controlY)
-        return QuadCurveModel.shared.path.addQuadCurve()
+    public func cp1(_ controlX: Double, _ controlY: Double) -> UIBezierPath {
+        return path.addQuadCurve(toPoint: toPoint, controlPoint: CGPoint(x: controlX, y: controlY))
     }
     
     @discardableResult
-    public func controlPoint(_ controlX: Double, _ controlY: Double) -> UIBezierPath {
-        QuadCurveModel.shared.controlPoint = CGPoint(x: controlX, y: controlY)
-        return QuadCurveModel.shared.path.addQuadCurve()
-    }
-    
-    @discardableResult
-    public func controlPoint(_ controlX: Int, _ controlY: Int) -> UIBezierPath {
-        QuadCurveModel.shared.controlPoint = CGPoint(x: controlX, y: controlY)
-        return QuadCurveModel.shared.path.addQuadCurve()
+    public func cp1(_ controlX: Int, _ controlY: Int) -> UIBezierPath {
+        return path.addQuadCurve(toPoint: toPoint, controlPoint: CGPoint(x: controlX, y: controlY))
     }
 }

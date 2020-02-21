@@ -17,10 +17,7 @@
 		B598118F239743D70006312B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B598118E239743D70006312B /* Assets.xcassets */; };
 		B5981192239743D70006312B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5981190239743D70006312B /* LaunchScreen.storyboard */; };
 		B598119B2397442B0006312B /* SwieeftUIBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598119A2397442B0006312B /* SwieeftUIBezierPath.swift */; };
-		B59CD4E2239DEBA800719C91 /* ArcModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59CD4E1239DEBA800719C91 /* ArcModel.swift */; };
 		B5F59F21239DE6C700E747BA /* ArcController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F59F20239DE6C700E747BA /* ArcController.swift */; };
-		B5F59F25239DEA0800E747BA /* QuadCurveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F59F24239DEA0800E747BA /* QuadCurveModel.swift */; };
-		B5F59F27239DEA5500E747BA /* CurveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F59F26239DEA5500E747BA /* CurveModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +33,7 @@
 		B5981191239743D70006312B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5981193239743D70006312B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B598119A2397442B0006312B /* SwieeftUIBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwieeftUIBezierPath.swift; sourceTree = "<group>"; };
-		B59CD4E1239DEBA800719C91 /* ArcModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcModel.swift; sourceTree = "<group>"; };
 		B5F59F20239DE6C700E747BA /* ArcController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcController.swift; sourceTree = "<group>"; };
-		B5F59F24239DEA0800E747BA /* QuadCurveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadCurveModel.swift; sourceTree = "<group>"; };
-		B5F59F26239DEA5500E747BA /* CurveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +93,6 @@
 		B5F59F22239DE9EA00E747BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B5F59F24239DEA0800E747BA /* QuadCurveModel.swift */,
-				B5F59F26239DEA5500E747BA /* CurveModel.swift */,
-				B59CD4E1239DEBA800719C91 /* ArcModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,11 +182,8 @@
 				B54B20EA2397B5DB009AA213 /* QuadCurveController.swift in Sources */,
 				B5981183239743D50006312B /* AppDelegate.swift in Sources */,
 				B598119B2397442B0006312B /* SwieeftUIBezierPath.swift in Sources */,
-				B59CD4E2239DEBA800719C91 /* ArcModel.swift in Sources */,
 				B54B20EC2397B5F5009AA213 /* CurveController.swift in Sources */,
 				B598118D239743D50006312B /* SwieeftUIBezierPathExample.xcdatamodeld in Sources */,
-				B5F59F25239DEA0800E747BA /* QuadCurveModel.swift in Sources */,
-				B5F59F27239DEA5500E747BA /* CurveModel.swift in Sources */,
 				B5981185239743D50006312B /* SceneDelegate.swift in Sources */,
 				B5F59F21239DE6C700E747BA /* ArcController.swift in Sources */,
 			);
